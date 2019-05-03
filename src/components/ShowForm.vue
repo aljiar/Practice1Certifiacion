@@ -21,12 +21,16 @@
            @mouseover="updateProduct(index)">
       </div>
 
-      <button v-on:click="addToCart" 
+      <button v-on:click="addToCart1" 
               :disabled="!inStock"
               :class="{disabledButton: !inStock}" >
               Add to cart
         </button>
 
+    </div>
+
+    <div class="cart">
+          <p>Cart({{cart.length}})</p>
     </div>
 
     <div>
@@ -74,7 +78,8 @@ export default {
                     variantImage:"iphoneblack.jpg"
                 }
             ],
-            reviews: []
+            reviews: [],
+            cart: []
         }
     },
     methods: {
@@ -87,6 +92,9 @@ export default {
         },
         addReview(productReview){
             this.reviews.push(productReview)
+        },
+        addToCart1(){
+            this.cart.push(this.variants[this.selectedVariant].variantId)
         }
     },
      computed: {
