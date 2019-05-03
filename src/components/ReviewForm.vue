@@ -3,9 +3,9 @@
 
     <p v-if="errors.length">
         <b>Please correct the following error(s):</b>
-        <!--<ul>
-            <li v-for="error in errors">{{errors}}</li>
-        </ul>-->
+        <ul>
+            <li v-for="error in errors" v-bind:key ="error">{{errors}}</li>
+        </ul>
     </p>
 
     <p>

@@ -10,9 +10,9 @@
       <p v-if="inStock"> In Stock</p>
       <p v-else> Out of Stock</p>
 
-      <!--<ul>
-        <li v-for="detail in details"> {{ detail }} </li>
-      </ul>-->
+      <ul>
+        <li v-for="detail in details" v-bind:key="detail"> {{ detail }} </li>
+      </ul>
 
       <div v-for="(variant, index) in variants"
            :key="variant.variantId"
@@ -32,13 +32,13 @@
     <div>
         <h2>Reviews</h2>
         <p v-if="!reviews.length">There are no reviews yet.</p>
-        <!--<ul>
-            <li v-for="review in reviews">
+        <ul>
+            <li v-for="review in reviews" v-bind:key="review">
                 <p>{{ review.name }}</p>
                 <p>Rating: {{ review.rating }}</p>
                 <p>{{ review.review }}</p>
             </li>
-        </ul>-->
+        </ul>
     </div>
 
     <product-review @review-submitted="addReview" ></product-review>
